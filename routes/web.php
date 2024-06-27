@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SinhVienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('list-product', [ProductController::class, 'showProduct']);
+Route::get('thongtinsv', [SinhVienController::class, 'infomation']);
+
+//slug 
+Route::get('get-product/{id}', [ProductController::class, 'getProduct']);
+//params
+//http://127.0.0.1:8000/update-product?id=1&name=abc&price=1000
+Route::get('update-product', [ProductController::class, 'updateProduct']);
